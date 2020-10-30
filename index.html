@@ -312,8 +312,8 @@
 	// 	location.reload();
 	// }
 
-	if (window.innerHeight > window.innerWidth) {
-		alert("Please use Landscape!");
+	window.onresize = function (event) {
+		document.location.reload(true);
 	}
 
 
