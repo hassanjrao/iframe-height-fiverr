@@ -294,16 +294,26 @@
 		console.log(obj.contentWindow.document.documentElement.scrollHeight);
 	}
 
-	if (window.matchMedia("(orientation: portrait)").matches) {
-		// you're in PORTRAIT mode
+	var flag = false;
 
-		location.reload();
-	}
+	// if (window.matchMedia("(orientation: portrait)").matches) {
+	// 	// you're in PORTRAIT mode
 
-	if (window.matchMedia("(orientation: landscape)").matches) {
-		// you're in LANDSCAPE mode
+	// 	if (flag == false) {
+	// 		location.reload();
+	// 		flag
+	// 	}
 
-		location.reload();
+	// }
+
+	// if (window.matchMedia("(orientation: landscape)").matches) {
+	// 	// you're in LANDSCAPE mode
+
+	// 	location.reload();
+	// }
+
+	if (window.innerHeight > window.innerWidth) {
+		alert("Please use Landscape!");
 	}
 
 
