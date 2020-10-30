@@ -1,0 +1,19 @@
+==========
+IFRAME
+==========
+
+1. Open course.html in your web browser (in the code, notice the initial source of the iframe is welcome.html)
+
+2. Notice in the right column, after you load the page in your browser, you can only see the first paragraph (you should be seeing 12 paragraphs)
+
+3. Ensure your solution does not display scrollbars, the iframe height needs to "dynamically" increase based on the contents, without the use of scrollbars (you can use inline javascript, but I don't want to use third-party libraries like jquery)
+
+==========
+COLUMNS
+==========
+
+1. Open course.html in your web browser
+
+2. Reduce the size of your browser window
+
+3. Notice the left column is displayed in the top position, this is wrong (the left column should appear "below" the right column on tablet/mobile screens)

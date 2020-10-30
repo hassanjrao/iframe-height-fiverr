@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+
+	<style type="text/css">
+		/* Column styles start here */
+		* {
+			box-sizing: border-box;
+		}
+
+		/* Create two equal columns that floats next to each other */
+		.column1 {
+			float: left;
+			width: 33.33%;
+			padding: 12px;
+		}
+
+		.column2 {
+			float: left;
+			width: 66.66%;
+			padding: 4px 24px 4px;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+		@media screen and (max-width: 1025px) {
+			.column1 {
+				width: 100%;
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.column2 {
+				width: 100%;
+			}
+		}
+
+		/* Responsive layout - reverses columns */
+		@media (max-width: 1025px) {
+			.reverse-columns {
+				flex-direction: column-reverse;
+			}
+		}
+
+		/** Accordion core starts here **/
+		.accordion {
+			box-sizing: border-box;
+			display: flex;
+			font-family: Arial, Helvetica, sans-serif;
+			overflow: hidden;
+			width: 100%;
+		}
+
+		.accordion-select {
+			cursor: pointer;
+			margin: 0;
+			opacity: 0;
+			z-index: 1;
+		}
+
+		.accordion-title {
+			position: relative;
+		}
+
+		.accordion-title:not(:nth-last-child(2))::after {
+			border: 1px solid transparent;
+			bottom: 0;
+			content: '';
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.accordion-title span {
+			bottom: 0px;
+			box-sizing: border-box;
+			display: block;
+			position: absolute;
+			white-space: nowrap;
+			width: 100%;
+		}
+
+		.accordion-content {
+			box-sizing: border-box;
+			overflow: auto;
+			position: relative;
+			transition: margin 0.3s ease 0.1s;
+		}
+
+		.accordion-select:checked+.accordion-title+.accordion-content {
+			margin-bottom: 0;
+			margin-right: 0;
+		}
+
+		/* Generated styles starts here */
+		.accordion {
+			border-color: #E0E0E0;
+			border-radius: 8px;
+			border-style: solid;
+			border-width: 1px;
+			flex-direction: column;
+			height: auto;
+		}
+
+		.accordion-title,
+		.accordion-select {
+			background-color: #F2F2F2;
+			color: #444444;
+			width: 100%;
+			height: 65px;
+			font-size: 18px;
+		}
+
+		.accordion-select {
+			margin-bottom: -65px;
+			margin-right: 0;
+		}
+
+		.accordion-title:not(:nth-last-child(2))::after {
+			border-bottom-color: #E0E0E0;
+			border-right-color: transparent;
+		}
+
+		/*.accordion-select:hover + .accordion-title,
+	.accordion-select:checked + .accordion-title {
+	    background-color: #FFFFFF;
+	}*/
+
+		.accordion-title span {
+			transform: rotate(0deg);
+			-ms-writing-mode: lr-tb;
+			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+			padding-left: 33px;
+			padding-right: 33px;
+			line-height: 65px;
+		}
+
+		.accordion-content {
+			background-color: #FFFFFF;
+			color: #444444;
+			height: 300px;
+			margin-bottom: -300px;
+			margin-right: 0;
+			padding: 30px;
+			width: 100%;
+		}
+
+		/** List styles start here **/
+		ol {
+			list-style: none;
+			counter-reset: steps;
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			padding: 0px;
+		}
+
+		ol li {
+			counter-increment: steps;
+		}
+
+		ol li::before {
+			content: counter(steps);
+			margin-right: 0.5rem;
+			background: #ff6f00;
+			color: white;
+			width: 1.2em;
+			height: 1.2em;
+			border-radius: 50%;
+			display: inline-grid;
+			place-items: center;
+			line-height: 1.2em;
+		}
+
+		ol ol li::before {
+			background: darkorchid;
+		}
+	</style>
+
+
+</head>
+
+<body>
+
+	<div class="row">
+
+		<div class="column1 reverse-columns">
+
+			<div class="accordion">
+				<input type="radio" name="select" class="accordion-select" checked="">
+				<div class="accordion-title"><span>Module 1</span></div>
+				<div class="accordion-content">
+					<ol>
+						<li><a target="course-content" href="content1.html"><span>Lesson title here</span></a></li>
+						<li><a target="course-content" href="content2.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content3.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content4.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content5.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content6.html">Lesson title here</a></li>
+					</ol>
+				</div>
+				<input type="radio" name="select" class="accordion-select">
+				<div class="accordion-title"><span>Module 2</span></div>
+				<div class="accordion-content">
+					<ol>
+						<li><a target="course-content" href="content1.html"><span>Lesson title here</span></a></li>
+						<li><a target="course-content" href="content2.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content3.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content4.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content5.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content6.html">Lesson title here</a></li>
+					</ol>
+				</div>
+				<input type="radio" name="select" class="accordion-select">
+				<div class="accordion-title"><span>Module 3</span></div>
+				<div class="accordion-content">
+					<ol>
+						<li><a target="course-content" href="content1.html"><span>Lesson title here</span></a></li>
+						<li><a target="course-content" href="content2.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content3.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content4.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content5.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content6.html">Lesson title here</a></li>
+					</ol>
+				</div>
+				<input type="radio" name="select" class="accordion-select">
+				<div class="accordion-title"><span>Module 4</span></div>
+				<div class="accordion-content">
+					<ol>
+						<li><a target="course-content" href="content1.html"><span>Lesson title here</span></a></li>
+						<li><a target="course-content" href="content2.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content3.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content4.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content5.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content6.html">Lesson title here</a></li>
+					</ol>
+				</div>
+				<input type="radio" name="select" class="accordion-select">
+				<div class="accordion-title"><span>Module 5</span></div>
+				<div class="accordion-content">
+					<ol>
+						<li><a target="course-content" href="content1.html"><span>Lesson title here</span></a></li>
+						<li><a target="course-content" href="content2.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content3.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content4.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content5.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content6.html">Lesson title here</a></li>
+					</ol>
+				</div>
+				<input type="radio" name="select" class="accordion-select">
+				<div class="accordion-title"><span>Module 6</span></div>
+				<div class="accordion-content">
+					<ol>
+						<li><a target="course-content" href="content1.html"><span>Lesson title here</span></a></li>
+						<li><a target="course-content" href="content2.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content3.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content4.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content5.html">Lesson title here</a></li>
+						<li><a target="course-content" href="content6.html">Lesson title here</a></li>
+					</ol>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="column2 reverse-columns">
+
+			<iframe style="border: 1px solid red;" id="" class="" name="course-content" src="welcome.html"
+				frameborder="0" scrolling="no" width="100%" onload="resizeIframe(this)"></iframe>
+
+		</div>
+
+	</div>
+
+</body>
+
+<script>
+	function resizeIframe(obj) {
+		obj.style.height="0px";
+		obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+
+		console.log(obj.style.height);
+		console.log(obj.contentWindow.document.documentElement.scrollHeight);
+	}
+</script>
+
+</html>
