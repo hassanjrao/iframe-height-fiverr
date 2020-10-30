@@ -186,6 +186,30 @@
 		}
 	</style>
 
+<script>
+	function resizeIframe(obj) {
+		obj.style.height = "0px";
+		obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+
+		console.log(obj.style.height);
+		console.log(obj.contentWindow.document.documentElement.scrollHeight);
+
+		window.scrollTo(0, -500000);
+	}
+
+	
+
+	var iframe1 = document.getElementById("iframe");
+	window.onresize = function (event) {
+		console.log("As");
+		iframe1.style.height = "0px";
+		iframe1.style.height = iframe1.contentWindow.document.documentElement.scrollHeight + 'px';
+	}
+
+
+
+</script>
+
 
 
 
@@ -285,26 +309,7 @@
 
 </body>
 
-<script>
-	function resizeIframe(obj) {
-		obj.style.height = "0px";
-		obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
 
-		console.log(obj.style.height);
-		console.log(obj.contentWindow.document.documentElement.scrollHeight);
-	}
-
-	
-
-	var iframe1 = document.getElementById("iframe");
-	window.onresize = function (event) {
-		iframe1.style.height = "0px";
-		iframe1.style.height = iframe1.contentWindow.document.documentElement.scrollHeight + 'px';
-	}
-
-
-
-</script>
 
 
 </html>
