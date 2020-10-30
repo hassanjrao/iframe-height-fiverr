@@ -294,7 +294,17 @@
 		console.log(obj.contentWindow.document.documentElement.scrollHeight);
 	}
 
-	window.onorientationchange = function () { window.location.reload(); };
+	if (window.matchMedia("(orientation: portrait)").matches) {
+		// you're in PORTRAIT mode
+
+		location.reload();
+	}
+
+	if (window.matchMedia("(orientation: landscape)").matches) {
+		// you're in LANDSCAPE mode
+
+		location.reload();
+	}
 
 
 
